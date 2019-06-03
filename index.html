@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=5.0,minimum-scale=1.0, minimal-ui">
+<!--	<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+	<meta name="HandheldFriendly" content="true" />
+    <title>Slider bar graph A</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery-ui.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+<!--    <script type="text/javascript" src="assets/js/lib/swiper.js"></script>-->
+</head>
+<body>
+	<a href='#begin_btn' style='position:absolute;top:-5000px'>123</a>
+	<div role='main' style='display:none'></div>
+	<div role='navigation' style='display:none'></div>
+	<div id='whole_container' >
+		<div class="preload">
+            <div class="loader"></div>
+        </div> 
+		<div id='begin_page'>
+			<div id='begin_dummy' role='none'></div>
+			<div  id='begin_cont'  role='none'>
+				<img id='begin_container' role='img' src='./assets/images/WaSS11-02b_begin.png' alt='The global mean temperature changes of the ocean’s surface over time.'/>
+			</div>
+			<div role='button' id='begin_btn' aria-label='Begin'>Begin</div>
+			<div id='begin_reverse_dummy' role='none'></div>
+		</div>
+		<div id='dummy_1' role='none'>???</div>
+		<h1 id='text_container' role='heading' aria-level='1'></h1>
+		<div id='heading_text' role='none'></div>
+		<div id='responsive_whole'>
+			<div id='responsive_container'>
+				 <div class="imageCont" role='none' aria-label='the global mean temperature changes of the ocean’s surface over time.'>
+					<img class="imgC img1" src="assets/images/WaSS11-02b_slide1.png" alt='the global mean temperature changes of the ocean’s surface over time'>
+					<img class="imgC img2" src="assets/images/WaSS11-02b_slide2.png" alt='the global mean temperature changes of the ocean’s surface over time in 1940' aria-hidden='true'>
+					<img class="imgC img3" src="assets/images/WaSS11-02b_slide3.png" alt='the global mean temperature changes of the ocean’s surface over time in 1960.' aria-hidden='true'>
+					<img class="imgC img4" src="assets/images/WaSS11-02b_slide4.png" alt='the global mean temperature changes of the ocean’s surface over time in 1980' aria-hidden='true'>
+					<img class="imgC img5" src="assets/images/WaSS11-02b_slide5.png" alt='the global mean temperature changes of the ocean’s surface over time in 2000' aria-hidden='true'>
+					<img class="imgC img6" src="assets/images/WaSS11-02b_slide6.png" alt='the global mean temperature changes of the ocean’s surface over time in 2014' aria-hidden='true'>
+<!--					<img class="imgC img7" src="assets/images/WaSS11-02b_slide7.png" alt='the global mean temperature changes of the ocean’s surface over time.' aria-hidden='true'>-->
+				 </div>
+			</div>
+		</div>
+			 <div class="slider" id='slide_cont'>
+				<div class="sliderBar" id='sliderBar_id'>
+					<div id="slider" class="sliderCustomize" aria-valuemin='0' aria-valuemax='100' aria-valuenow='1920'></div>
+<!--					<div id="slider_dummy" class='sliderCustomize ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all sliderRange'></div>-->
+				</div>
+			   <div class="labels" id='label_cont'>
+					<div class="label" id="label1" aria-hidden='true'></div>
+					<div class="label" id="label2" aria-hidden='true'></div>
+					<div class="label" id="label3" aria-hidden='true'></div>
+					<div class="label" id="label4" aria-hidden='true'></div>
+					<div class="label" id="label5" aria-hidden='true'></div>
+					<div class="label" id="label6" aria-hidden='true'></div>
+				</div>
+			</div>
+		<div id='btn_container'>
+			<div role='button' id='reset_btn' aria-label='Reset'>Reset</div>
+		</div>
+		<div role='none' id='dummy_2'>???</div>
+	</div>
+<script>
+		$.holdReady(true);
+		var preloadComplete=false;
+		$.getScript("./assets/js/lib/preloadjs-0.6.2.min.js", function() {
+			$.holdReady(false);
+			manifest = [
+				"assets/images/common/loading.gif",
+				"assets/images/common/close_btn.png",
+				"assets/images/WaSS11-02b_begin.png",
+				"assets/images/WaSS11-02b_slide1.png",
+				"assets/images/WaSS11-02b_slide2.png",
+				"assets/images/WaSS11-02b_slide3.png",
+				"assets/images/WaSS11-02b_slide4.png",
+				"assets/images/WaSS11-02b_slide5.png",
+				"assets/images/WaSS11-02b_slide6.png",
+				"assets/images/WaSS11-02b_slide7.png",
+				"assets/images/static.png",
+				"assets/images/notch.png"
+			];
+			preload = new createjs.LoadQueue(true);
+			preload.addEventListener("progress", function() {
+				//console.log('Updating preloading progress...'+Math.round(preload.progress*100)+"%");
+			});
+			preload.addEventListener("complete", function(){
+				$('.preload').fadeOut();
+			});
+			preload.setMaxConnections(5);
+			preload.loadManifest(manifest);
+		});
+</script>
+<script type="text/javascript" src="assets/js/lib/preloadjs-0.6.2.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/fitToScreen.js"></script>
+    <script type="text/javascript" src="assets/js/data.js"></script>
+</body>
+</html>
