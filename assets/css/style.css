@@ -152,7 +152,7 @@ clicked {
 	height: 716px;
 	/*margin: auto;*/
 /*	padding: 2px;*/
-	border:0px solid red;
+	border:1px solid red;
 	position: absolute;
 	margin: auto;
     left: 0px;
@@ -261,12 +261,12 @@ clicked {
 }
 .imgC
 {
-    height: 370px;
+   /*  height: 370px; */
     left: 0px;
     /* margin: 50px; */
     opacity: 0;
     position: absolute;
-    width: 666px;
+   /*  width: 666px; */
     top: 0px;
 }
 #begin_page{
