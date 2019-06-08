@@ -13,5 +13,12 @@ var data = [{
 				'Between 1980 and 2000 the ocean’s surface experienced only temperature increases, some of them much larger than in decades past, as measured by mean annual temperature changes.',
 				'Between 2000 and 2014 the ocean’s surface again experienced only temperature increases, with those increases climbing over time, as measured by mean annual temperature changes.'
         ],
-	"year":['1920','1940','1960','1980','2000','2014']
+	"year":[
+				'The global mean temperature changes of the ocean’s surface over time.',
+				'Between 1920 and 1940 the mean annual temperature changes of the ocean’s surface varied but primarily showed slight decreases.',
+				'Between 1940 and 1960 the mean annual temperature changes of the ocean’s surface varied but primarily showed increases, and the increases were much greater than the decreases.',
+				'Between 1960 and 1980 the mean annual temperature changes of the ocean’s surface again showed more increases than decreases.',
+				'Between 1980 and 2000 the ocean’s surface experienced only temperature increases, some of them much larger than in decades past, as measured by mean annual temperature changes.',
+				'Between 2000 and 2014 the ocean’s surface again experienced only temperature increases, with those increases climbing over time, as measured by mean annual temperature changes.'
+			]
     }];
