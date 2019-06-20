@@ -120,6 +120,7 @@ clicked {
     font-size: 14px;
 	font-family: "SourceSansPro-Regular";
 	position: relative;
+	font-weight:normal;
 	display:none;
 	top:2px;
 }
@@ -452,11 +453,12 @@ span{
     width: 100%;
     /* min-height: 77px; */
     /* opacity: 0; */
-    font-family: "SourceSansPro-Bold";
+    font-family: "SourceSansPro-Regular";
     font-size: 14px;
     /* text-align: center; */
     display: none;
     top: 18px;
+	font-weight:normal;
     position: relative;
 }
 .sliderBar{
