@@ -108,8 +108,8 @@ var slider = $("#slider").slider({
 //				event.preventDefault();
 //				event.handled = true;
 //				$("#slider").slider("option", "values", [value[flag_touch]]);
-				var isAndroid = /(android)/i.test(navigator.userAgent);	
-				if(isAndroid){
+//				var isAndroid = /(android)/i.test(navigator.userAgent);	
+//				if(isAndroid){
 //					setTimeout(function(){
 							$('.ui-slider-handle').blur()//.focus();
 						setTimeout(function(){
@@ -121,7 +121,7 @@ var slider = $("#slider").slider({
 //							$('.ui-slider-handle').blur()
 //						},200)
 //					},100)
-				}
+//				}
 //			
 //				flag_touch++
 //				if(flag_touch>value.length-1){
