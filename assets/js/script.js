@@ -4,6 +4,11 @@ $(document).ready(function(){
 	
 	
 	$(document).delegate('.ui-page', 'touchmove', false);
+	
+	var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if(isSafari){
+	   $('#heading_text').attr('role','text')
+	}
 $('#begin_btn').off('click').on('click',function(){
 	begin_entered=true;
 	$('#btn_container').fadeIn(1000);
@@ -93,43 +98,90 @@ var slider = $("#slider").slider({
 				$('.img6').css('opacity','1');
 			    $('#heading_text').html(data[0].description[data[0].description.length-1])
 			   	$('#heading_text').attr('aria-label',data[0].description[data[0].description.length-1])
-		  }
+		  
+		   }
+		  var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+          if(isSafari){
+               $('#ui_handler').blur();
+               $('#ui_handler').off('click').on('click',function(){
+                    $('#text_container').focus();
+                    setTimeout(function(){
+                        $('#ui_handler').focus();
+                    },10)
+                });
+              setTimeout(function(){
+                $('#ui_handler').trigger('click')
+              },20)
+          }
 	  }
   });
 	
 			
-		var flag_touch=0;
-	if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {		
-		$(document).on('touchend', '.ui-slider-handle', function(event){
-////			if ($(".ui-slider-handle").is(":focus")) {
-//				//alert()
-//				if(event.handled === false) return
-//				event.stopPropagation();
-//				event.preventDefault();
-//				event.handled = true;
-//				$("#slider").slider("option", "values", [value[flag_touch]]);
-//				var isAndroid = /(android)/i.test(navigator.userAgent);	
-//				if(isAndroid){
-//					setTimeout(function(){
-							$('.ui-slider-handle').blur()//.focus();
-						setTimeout(function(){
-//							$('.ui-slider-handle').removeAttr('aria-label')//.blur()
-							$('.ui-slider-handle').focus()//.blur()
-						},100)
-						
+//		var flag_touch=0;
+//	if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {		
+//		$(document).on('touchend', '.ui-slider-handle', function(event){
+//////			if ($(".ui-slider-handle").is(":focus")) {
+////				//alert()
+////				if(event.handled === false) return
+////				event.stopPropagation();
+////				event.preventDefault();
+////				event.handled = true;
+////				$("#slider").slider("option", "values", [value[flag_touch]]);
+////				var isAndroid = /(android)/i.test(navigator.userAgent);	
+////				if(isAndroid){
+////					setTimeout(function(){
+//							$('.ui-slider-handle').blur()//.focus();
 //						setTimeout(function(){
-//							$('.ui-slider-handle').blur()
-//						},200)
-//					},100)
-//				}
-//			
-//				flag_touch++
-//				if(flag_touch>value.length-1){
-//					flag_touch=0
-//				}
-////			}
-		});
+////							$('.ui-slider-handle').removeAttr('aria-label')//.blur()
+//							$('.ui-slider-handle').focus()//.blur()
+//						},100)
+//						
+////						setTimeout(function(){
+////							$('.ui-slider-handle').blur()
+////						},200)
+////					},100)
+////				}
+////			
+////				flag_touch++
+////				if(flag_touch>value.length-1){
+////					flag_touch=0
+////				}
+//////			}
+//		});
+//	}
+		var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	if(iOS){
+		$('#ui_handler').attr('aria-live','assertive')
 	}
+		  $(document).on('touchend', '.ui-slider-handle', function(event){
+////			$('.ui-slider-handle').focus()
+			if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {	
+//				//aria-live="assertive"
+////				$(document).on('click','body',function(){
+////					//  $(this) = your current element that clicked.
+////					// additional code
+////					alert()
+////				});
+////				$(document).trigger('click')
+////				$('.ui-slider-handle').trigger('click')
+				
+				var isAndroid = /(android)/i.test(navigator.userAgent);
+				if(isAndroid){
+					$('.ui-slider-handle').blur();
+					setTimeout(function(){
+						$('.ui-slider-handle').focus();	
+					},200)		
+				}
+				
+//				
+////					$('#heading_text').trigger('click');
+//////					$('.ui-slider-handle').off('click').on('click',function(){
+////////						$('.ui-slider-handle').attr('aria-label',' ');
+////						$('.ui-slider-handle').focus()//.trigger();
+//////					});
+//////					$('.ui-slider-handle').trigger('click')
+			}	
+		});
 function findNearest(includeLeft, includeRight, value) {
 	var nearest = null;
 	var diff = null;
